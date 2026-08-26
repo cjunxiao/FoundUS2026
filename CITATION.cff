@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the FoundUS 2026 paper."
+title: "Stable Landmark Identity and Unlabeled Adaptation: A ConvNeXt Framework for FoundUS 2026"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Junxiao
+repository-code: "https://github.com/cjunxiao/FoundUS2026"
+date-released: 2026-08-26
+license: Apache-2.0
+preferred-citation:
+  type: conference-paper
+  title: "Stable Landmark Identity and Unlabeled Adaptation: A ConvNeXt Framework for FoundUS 2026"
+  authors:
+    - family-names: Chen
+      given-names: Junxiao
+  year: 2026

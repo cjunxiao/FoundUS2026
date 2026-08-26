@@ -1,0 +1,3 @@
+leaderboard,method,team,preliminary_rank,teams,mre_value,mae_value,final_score,status
+A,per-task per-metric Min-Max normalization before task averaging,cjunxiao,12,31,0.23634,0.33091,0.28363,preliminary_pending_eligibility_review
+B,raw task averaging before global Min-Max normalization,cjunxiao,15,31,0.26128,0.29601,0.27864,preliminary_pending_eligibility_review

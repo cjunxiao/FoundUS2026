@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "training_performed": false,
+  "predictions_modified": false,
+  "checkpoint_reselection": false,
+  "threshold_search": false,
+  "sample_filtering": false,
+  "selected_epochs": [
+    12,
+    31,
+    19,
+    26,
+    26
+  ],
+  "checkpoint_hashes_verified": true,
+  "oof_rows": 6700,
+  "unique_oof_keys": 6700,
+  "pair_instances": 5736,
+  "aop_n_a_images": 4000,
+  "tasks_seen": [
+    "A4C",
+    "AOP",
+    "FA",
+    "FUGC",
+    "HC",
+    "IVC",
+    "PLAX",
+    "PSAX",
+    "fetal_femur"
+  ],
+  "cache_target_max_difference": 0.0,
+  "raw_boundary_adjusted_images": 1,
+  "raw_boundary_adjustment_max": 1.0,
+  "measurement_invariance_tolerance": 1e-09,
+  "measurement_value_change_max": 0.0,
+  "measurement_mae_change_max_abs": 0.0
+}

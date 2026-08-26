@@ -1,0 +1,11 @@
+{
+  "schema": "fub2026_published_artifact_runtime_profile_v1",
+  "status": "pass",
+  "gpu": "NVIDIA RTX A6000",
+  "images": 619,
+  "elapsed_seconds": 35.357725620269775,
+  "images_per_second": 17.50678215697057,
+  "average_wall_clock_ms_per_image": 57.12071990350529,
+  "cuda_reserved_bytes": 1633681408,
+  "note": "Average over the complete 619-image end-to-end container verification; not isolated batch-1 latency."
+}

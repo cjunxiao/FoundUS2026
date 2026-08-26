@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "checks": {
+    "js_ratio_pass": true,
+    "coordinate_ratio_pass": true,
+    "per_task_js_pass": true,
+    "js_improves_warmstart": true,
+    "coordinate_improves_warmstart": true,
+    "frozen_hash_pass": true,
+    "scale_zero_exact_pass": true,
+    "coverage_exact_pass": true,
+    "all_trained_routes_changed": true,
+    "fetal_femur_route_unchanged": true
+  }
+}

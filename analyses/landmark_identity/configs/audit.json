@@ -1,0 +1,73 @@
+{
+  "experiment": "308-endpoint-identity-audit",
+  "source_summary_dir": "4-runs/161-stable-internal-exp152-5fold-summary",
+  "source_oof": "4-runs/161-stable-internal-exp152-5fold-summary/selected_oof_per_image.csv.gz",
+  "fold_run_template": "4-runs/161-stable-internal-exp152-fold{fold}-seed42",
+  "expected_selected_epochs": [12, 31, 19, 26, 26],
+  "expected_oof_rows": 6700,
+  "prediction_column": "predicted_points_json",
+  "cached_target_column": "official_target_points_json",
+  "output_dir": "4-runs/308-endpoint-identity-audit",
+  "results_doc": "1-docs/308-endpoint-identity-audit-results.md",
+  "measurement_invariance_tolerance": 1e-9,
+  "tasks": {
+    "A4C": [
+      {"name": "LV_vertical", "indices": [0, 1], "category": "vertical"},
+      {"name": "LV_horizontal", "indices": [2, 3], "category": "horizontal"},
+      {"name": "RV_vertical", "indices": [4, 5], "category": "vertical"},
+      {"name": "RV_horizontal", "indices": [6, 7], "category": "horizontal"},
+      {"name": "LA_vertical", "indices": [8, 9], "category": "vertical"},
+      {"name": "LA_horizontal", "indices": [10, 11], "category": "horizontal"},
+      {"name": "RA_vertical", "indices": [12, 13], "category": "vertical"},
+      {"name": "RA_horizontal", "indices": [14, 15], "category": "horizontal"}
+    ],
+    "PSAX": [
+      {"name": "RVOT", "indices": [0, 1], "category": "measurement_pair"},
+      {"name": "PA", "indices": [2, 3], "category": "measurement_pair"}
+    ],
+    "FA": [
+      {"name": "axis_1", "indices": [0, 1], "category": "ellipse_axis"},
+      {"name": "axis_2", "indices": [2, 3], "category": "ellipse_axis"}
+    ],
+    "FUGC": [
+      {"name": "CL", "indices": [0, 1], "category": "measurement_pair"}
+    ],
+    "HC": [
+      {"name": "BPD_axis", "indices": [0, 1], "category": "ellipse_axis"},
+      {"name": "orthogonal_axis", "indices": [2, 3], "category": "ellipse_axis"}
+    ],
+    "IVC": [
+      {"name": "IVC", "indices": [0, 1], "category": "measurement_pair"}
+    ],
+    "PLAX": [
+      {"name": "LV", "indices": [0, 1], "category": "measurement_pair"},
+      {"name": "RV", "indices": [2, 3], "category": "measurement_pair"},
+      {"name": "IVS", "indices": [4, 5], "category": "measurement_pair"},
+      {"name": "LVPW", "indices": [6, 7], "category": "measurement_pair"},
+      {"name": "VAO", "indices": [8, 9], "category": "measurement_pair"},
+      {"name": "STJ", "indices": [10, 11], "category": "measurement_pair"},
+      {"name": "AAO", "indices": [12, 13], "category": "measurement_pair"},
+      {"name": "AV", "indices": [14, 15], "category": "measurement_pair"},
+      {"name": "LVOT", "indices": [16, 17], "category": "measurement_pair"},
+      {"name": "LA", "indices": [18, 19], "category": "measurement_pair"},
+      {"name": "RVOT", "indices": [20, 21], "category": "measurement_pair"}
+    ],
+    "fetal_femur": [
+      {"name": "FL", "indices": [0, 1], "category": "measurement_pair"}
+    ]
+  },
+  "n_a_tasks": {
+    "AOP": "Shared angle vertex, two rays, and HSD do not form interchangeable endpoint pairs."
+  },
+  "measurement_names": {
+    "A4C": ["LV_vertical", "LV_horizontal", "RV_vertical", "RV_horizontal", "LA_vertical", "LA_horizontal", "RA_vertical", "RA_horizontal"],
+    "PSAX": ["RVOT", "PA"],
+    "FA": ["FA_circumference"],
+    "FUGC": ["CL"],
+    "HC": ["BPD", "HC_circumference"],
+    "IVC": ["IVC"],
+    "PLAX": ["LV", "RV", "IVS", "LVPW", "VAO", "STJ", "AAO", "AV", "LVOT", "LA", "RVOT"],
+    "fetal_femur": ["FL"]
+  },
+  "control_tasks": ["FA", "FUGC", "HC", "IVC", "PLAX", "fetal_femur"]
+}
