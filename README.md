@@ -4,6 +4,8 @@
 Official method and reproducibility materials for team `cjunxiao`, paper
 `MWM95`, and FoundUS/FUB 2026 CodaBench submission `879954`.
 
+Current public snapshot: [`postcompetition-v1.1`](https://github.com/cjunxiao/FoundUS2026/tree/postcompetition-v1.1).
+
 The final challenge system is a single nine-task student model. Five fused
 teachers are used only during training to construct reliability-weighted soft
 heatmap targets from the organizer-provided unlabeled pool. Runtime inference
@@ -43,12 +45,14 @@ retains its supervised route within the same nine-task runtime graph.
 
 - `METHOD_OVERVIEW.md`: final method and nine-task configuration
 - `FINAL_DISTILLATION.md`: reliability-weighted soft-heatmap distillation
+- `REPRODUCIBILITY_QUICKSTART.md`: Docker execution, source verification, and training-stage map
 - `final_inference/`: readable, runtime-equivalent inference implementation
 - `exact_submission_source/`: immutable submitted source names and OCI labels
 - `training/`: provenance-complete training snapshots and prerequisites
 - `analyses/`: controlled appearance and landmark-identity studies
 - `evidence/`: aggregate metrics, official results, QC, and runtime records
 - `paper/`: camera-ready paper, supplement, and compact LaTeX source archive
+- `MODEL_LICENSE_BOUNDARY.md`: team-code, pretrained-model, weight, and data license scope
 - `THIRD_PARTY_NOTICES.md`: external initializations, licenses, and citations
 
 ## Executable Reference
@@ -60,6 +64,10 @@ SHA-locked checkpoint and organizer-provided data. Raw challenge data, model
 weights, teacher banks, caches, per-case predictions, and organizer image
 overlays are intentionally excluded.
 
+See [`REPRODUCIBILITY_QUICKSTART.md`](REPRODUCIBILITY_QUICKSTART.md) for the
+container command, input/output contract, source-level verification, and the
+prerequisites for each optimization stage.
+
 ## Runtime Verification
 
 The published container processed 619 validation images on an NVIDIA RTX
@@ -68,6 +76,9 @@ complete run, with 1.63 GB peak CUDA reserved memory.
 
 ## License and Attribution
 
-Repository-authored code is provided under the Apache License 2.0. External
-models, software, and organizer-provided data remain subject to their original
-licenses and access conditions. See `THIRD_PARTY_NOTICES.md` before reuse.
+Repository-authored code is provided under the Apache License 2.0. This license
+does not relicense third-party software, pretrained resources, derived model
+weights, or organizer-provided data. USFM and weights derived from it remain
+subject to CC BY-NC 4.0. See
+[`MODEL_LICENSE_BOUNDARY.md`](MODEL_LICENSE_BOUNDARY.md) and
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) before reuse.
