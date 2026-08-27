@@ -12,10 +12,10 @@
     "embedded_in_public_docker": true
   },
   "docker": {
-    "tag": "docker.io/cjunxiao/foundus2026-final:exp301-73086754-20260806-r1",
     "digest": "sha256:4379314a848ae22acbdbcd12366fff255ae603ce1512c64ae448c0a77552a83e",
     "anonymous_registry_access": "pass",
-    "runtime_network_required": false
+    "runtime_network_required": false,
+    "image": "docker.io/cjunxiao/foundus2026-final@sha256:4379314a848ae22acbdbcd12366fff255ae603ce1512c64ae448c0a77552a83e"
   },
   "parameters": {
     "total": 208292104,
@@ -63,5 +63,6 @@
   "official_unlabeled_teacher_target_images": 182870,
   "hidden_or_validation_labels_used_for_export": false,
   "checkpoint_sha256": "73086754757a70be87319d636ab4b837aeeefbed88e2189add40484cfb7b8da1",
-  "public_method_repository": "https://github.com/cjunxiao/FoundUS2026"
+  "public_method_repository": "https://github.com/cjunxiao/FoundUS2026",
+  "public_release_tag": "postcompetition-v1.2"
 }

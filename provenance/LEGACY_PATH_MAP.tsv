@@ -1,8 +1,0 @@
-public_path	immutable_legacy_path	role
-training/supervised_convnext	2-code/161-stable-internal-exp152	stable-identity supervised model
-training/usfm_heatmap	2-code/184-usfm-task-private-vitpose	ultrasound-foundation heatmap model
-training/dense_fusion	2-code/191-usfm-convnext-dense-fusion	dense dual-expert fusion
-training/unlabeled_distillation	2-code/301-full-official-unlabeled-ensemble-distillation	final unlabeled distillation
-analyses/appearance_replay	2-code/164-task-conditioned-unlabeled-appearance-replay	controlled complementary study
-analyses/landmark_identity	2-code/308-endpoint-identity-audit	no-training identity audit
-final_inference	7-method-infer/exp301-final-docker-v1	exact submitted runtime source without checkpoint
