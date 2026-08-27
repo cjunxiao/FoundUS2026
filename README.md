@@ -1,18 +1,19 @@
 # FoundUS 2026 Source Code
 
-Code for paper `MWM95` and final CodaBench submission `879954`.
+Complete training and inference code for paper `MWM95` and submission `879954`.
 
-The submitted runtime is one ConvNeXt-USFM student, one checkpoint, and one
-image view. Five fused teachers are used only to build unlabeled training
-targets.
+## Contents
 
-## Files
-
-- `final_inference/`: readable runtime-equivalent inference source
-- `training_reference.py`: core identity and distillation operations
+- `training/`: supervised ConvNeXt, USFM heatmaps, dense fusion, fusion-scale
+  calibration, teacher-target generation, warm-start, and final distillation
+- `final_inference/`: the complete readable inference implementation
 - `THIRD_PARTY_NOTICES.md`: pretrained-resource and license scope
 
-## Run the submitted image
+The challenge data, pretrained weights, intermediate checkpoints, and final
+checkpoint are not redistributed. Required paths are listed in the JSON
+configs. The immutable submitted Docker is the executable inference reference.
+
+## Inference
 
 ```bash
 docker pull docker.io/cjunxiao/foundus2026-final@sha256:4379314a848ae22acbdbcd12366fff255ae603ce1512c64ae448c0a77552a83e
@@ -25,14 +26,10 @@ docker run --rm --gpus all --shm-size=2g \
 Input contains `test_metadata.csv` and task image folders. Output is
 `regression_predictions.json`.
 
-The Docker is the executable reference. Building `final_inference/` locally
-also requires `best_model.pth` with SHA256 `73086754757a70be87319d636ab4b837aeeefbed88e2189add40484cfb7b8da1`; weights and
-challenge data are not redistributed.
+## Training
 
-## Reported result
+See `training/README.md`. Each stage accepts a JSON config and writes its own
+checkpoints. Five fused teachers build soft heatmap targets for eight unlabeled
+task routes; the final runtime uses one student checkpoint.
 
-- Hidden test: MRE `24.9356`, MAE `26.8758`
-- Leaderboard A: preliminary `12/31`, score `0.28363`
-- PSAX MRE: `39.311`, preliminary rank 1 in that metric dimension
-
-Repository: https://github.com/cjunxiao/FoundUS2026 (`postcompetition-v1.2`)
+Repository: https://github.com/cjunxiao/FoundUS2026 (`postcompetition-v1.3`)

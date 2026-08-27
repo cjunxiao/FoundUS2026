@@ -1,0 +1,99 @@
+{
+  "run_dir": "outputs/unlabeled_distillation/warmstart",
+  "unlabeled_manifest": "data/official_unlabeled_manifest.csv",
+  "unlabeled_manifest_sha256": "a1a552dd7d9a853b46f25f07414f1b618d9db5ada77ed03777936003ed4bc844",
+  "seed": 42,
+  "samples_per_task": 192,
+  "train_samples_per_task": 128,
+  "tasks": [
+    "A4C",
+    "AOP",
+    "FA",
+    "FUGC",
+    "HC",
+    "IVC",
+    "PLAX",
+    "PSAX"
+  ],
+  "input_size": 518,
+  "batch_size": 4,
+  "teacher_batch_size": 8,
+  "num_workers": 4,
+  "amp": true,
+  "amp_dtype": "bfloat16",
+  "decode_topk": 25,
+  "decode_topk_beta": 1.0,
+  "temperature": 1.0,
+  "epochs": 12,
+  "correction_learning_rate": 0.0003,
+  "correction_minimum_learning_rate": 3e-05,
+  "lora_learning_rate": 0.0001,
+  "lora_minimum_learning_rate": 1e-05,
+  "learning_rate": 0.0003,
+  "minimum_learning_rate": 3e-05,
+  "weight_decay": 0.001,
+  "coordinate_loss_weight": 0.05,
+  "coordinate_loss_unit": "heatmap_pixel",
+  "coordinate_smooth_l1_beta": 1.0,
+  "correction_l2_weight": 1e-05,
+  "lora_up_l2_weight": 1e-05,
+  "lora_last_blocks": 4,
+  "qkv_lora_rank": 4,
+  "qkv_lora_alpha": 4.0,
+  "projection_lora_rank": 4,
+  "projection_lora_alpha": 4.0,
+  "lora_dropout": 0.0,
+  "residual_hidden_channels": 64,
+  "residual_logit_bound": 2.0,
+  "context_dilations": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "task_scales": {
+    "A4C": 0.0,
+    "AOP": 0.75,
+    "FA": 0.75,
+    "FUGC": 0.0,
+    "HC": 0.5,
+    "IVC": 1.0,
+    "PLAX": 0.0,
+    "PSAX": 1.0,
+    "fetal_femur": 1.0
+  },
+  "medoid_fold": 1,
+  "checkpoints": [
+    {
+      "fold": 0,
+      "path": "checkpoints/dense_fusion/fold0/best.pt",
+      "sha256": "b22f870f022aad34725a31da087e3eb3bc2ecb0732c3a2dde08fc5862086ce89"
+    },
+    {
+      "fold": 1,
+      "path": "checkpoints/dense_fusion/fold1/best.pt",
+      "sha256": "81ee6e75bab1bfd9df339b8ab49cb3dab98883aa35758c82e0ba1efa4d8702b9"
+    },
+    {
+      "fold": 2,
+      "path": "checkpoints/dense_fusion/fold2/best.pt",
+      "sha256": "5d30bf5d905c47f7f1c8b4f27b984900d2be67a5fc6cd52118067f7d40fde3cb"
+    },
+    {
+      "fold": 3,
+      "path": "checkpoints/dense_fusion/fold3/best.pt",
+      "sha256": "ef4738cae846b01ba3d55a50f1d562bf03ab8b946fe39ac6cfb83a6fdfea172e"
+    },
+    {
+      "fold": 4,
+      "path": "checkpoints/dense_fusion/fold4/best.pt",
+      "sha256": "8523d1c7d20f7f9c10177c5b89c4e078a70aa5a08bc92f2008ba496f655566b5"
+    }
+  ],
+  "gate": {
+    "maximum_js_ratio": 0.7,
+    "maximum_coordinate_ratio": 0.8,
+    "maximum_per_task_js_ratio": 1.05
+  },
+  "enforce_empty_output": true
+}
