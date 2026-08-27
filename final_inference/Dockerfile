@@ -2,7 +2,7 @@ FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime@sha256:fc47f8018254e6df30f48c
 
 LABEL org.opencontainers.image.title="FUB 2026 final single-model inference" \
       org.opencontainers.image.description="Single-model task-specific USFM LoRA and contextual heatmap correction" \
-      org.opencontainers.image.version="postcompetition-v1.3" \
+      org.opencontainers.image.version="postcompetition-v1.3.1" \
       org.opencontainers.image.licenses="Apache-2.0 AND CC-BY-NC-4.0"
 
 WORKDIR /app

@@ -19,7 +19,7 @@ IDENTITY_SOURCE = PROJECT_ROOT / "training/supervised_convnext/dependencies/cano
 
 
 def _load_identity_helpers():
-    name = "canonical_identity_identity_for_exp183"
+    name = "canonical_identity_identity_for_usfm_heatmap"
     spec = importlib.util.spec_from_file_location(name, IDENTITY_SOURCE)
     if spec is None or spec.loader is None:
         raise ImportError(IDENTITY_SOURCE)

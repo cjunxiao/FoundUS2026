@@ -32,4 +32,4 @@ See `training/README.md`. Each stage accepts a JSON config and writes its own
 checkpoints. Five fused teachers build soft heatmap targets for eight unlabeled
 task routes; the final runtime uses one student checkpoint.
 
-Repository: https://github.com/cjunxiao/FoundUS2026 (`postcompetition-v1.3`)
+Repository: https://github.com/cjunxiao/FoundUS2026 (`postcompetition-v1.3.1`)

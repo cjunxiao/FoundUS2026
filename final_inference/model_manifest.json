@@ -64,5 +64,5 @@
   "hidden_or_validation_labels_used_for_export": false,
   "checkpoint_sha256": "73086754757a70be87319d636ab4b837aeeefbed88e2189add40484cfb7b8da1",
   "public_method_repository": "https://github.com/cjunxiao/FoundUS2026",
-  "public_release_tag": "postcompetition-v1.3"
+  "public_release_tag": "postcompetition-v1.3.1"
 }

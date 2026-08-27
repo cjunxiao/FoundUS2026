@@ -10,7 +10,7 @@ SOURCE = PROJECT_ROOT / "training/supervised_convnext/src/evaluation.py"
 
 
 def _load():
-    name = "supervised_convnext_evaluation_for_exp183"
+    name = "supervised_convnext_evaluation_for_usfm_heatmap"
     spec = importlib.util.spec_from_file_location(name, SOURCE)
     if spec is None or spec.loader is None:
         raise ImportError(SOURCE)

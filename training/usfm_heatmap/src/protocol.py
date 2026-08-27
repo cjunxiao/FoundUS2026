@@ -10,7 +10,7 @@ SOURCE = PROJECT_ROOT / "training/supervised_convnext/dependencies/fivefold_trai
 
 
 def _load():
-    name = "fivefold_trainer_protocol_for_exp183"
+    name = "fivefold_trainer_protocol_for_usfm_heatmap"
     spec = importlib.util.spec_from_file_location(name, SOURCE)
     if spec is None or spec.loader is None:
         raise ImportError(SOURCE)
