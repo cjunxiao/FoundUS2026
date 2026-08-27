@@ -527,10 +527,14 @@ class ContextualTaskResidualHead(nn.Module):
 
 
 class FinalStudentNetwork(nn.Module):
-    def __init__(self, task_configs: list[dict[str, Any]]) -> None:
+    def __init__(
+        self,
+        task_configs: list[dict[str, Any]],
+        task_scales: dict[str, float] | None = None,
+    ) -> None:
         super().__init__()
         self.anchor = DualExpertDenseFusion(task_configs)
-        self.task_scales = dict(TASK_SCALES)
+        self.task_scales = dict(TASK_SCALES if task_scales is None else task_scales)
         tasks = [str(item["task_id"]) for item in task_configs]
         self._lora_locations: list[tuple[int, str]] = []
         blocks = self.anchor.encoder.foundation.encoder.backbone.blocks
@@ -643,11 +647,17 @@ class FinalStudentNetwork(nn.Module):
         return anchor_logits + correction
 
 
-def build_network(task_configs: list[dict[str, Any]]) -> FinalStudentNetwork:
+def build_network(
+    task_configs: list[dict[str, Any]],
+    task_scales: dict[str, float] | None = None,
+) -> FinalStudentNetwork:
     expected = {str(item["task_id"]): int(item["num_classes"]) for item in task_configs}
     if expected != TASK_POINTS:
         raise RuntimeError(f"Checkpoint task map differs: {expected}")
-    return FinalStudentNetwork(task_configs)
+    scales = TASK_SCALES if task_scales is None else task_scales
+    if set(scales) != set(TASK_POINTS):
+        raise RuntimeError(f"Checkpoint task scales differ: {sorted(scales)}")
+    return FinalStudentNetwork(task_configs, scales)
 
 
 def decode_topk(logits: torch.Tensor, topk: int = 25) -> torch.Tensor:
@@ -730,7 +740,11 @@ class Model:
             checkpoint = Path("/app/best_model.pth")
         if not checkpoint.is_file():
             raise FileNotFoundError("best_model.pth is absent")
-        manifest_path = Path("/app/model_manifest.json")
+        manifest_path = Path.cwd() / "model_manifest.json"
+        if not manifest_path.is_file():
+            manifest_path = Path("/app/model_manifest.json")
+        if not manifest_path.is_file():
+            raise FileNotFoundError("model_manifest.json is absent")
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         actual_hash = sha256_file(checkpoint)
         if actual_hash != (manifest.get("checkpoint_sha256") or manifest.get("checkpoint", {}).get("sha256")):
@@ -741,7 +755,9 @@ class Model:
             )
         except TypeError:
             payload = torch.load(checkpoint, map_location="cpu")
-        self.network = build_network(payload["task_configs"])
+        self.network = build_network(
+            payload["task_configs"], payload.get("task_scales")
+        )
         result = self.network.load_state_dict(payload["model_state"], strict=True)
         if result.missing_keys or result.unexpected_keys:
             raise RuntimeError("Strict deployment checkpoint load failed")

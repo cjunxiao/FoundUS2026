@@ -28,8 +28,8 @@ Input contains `test_metadata.csv` and task image folders. Output is
 
 ## Training
 
-See `training/README.md`. Each stage accepts a JSON config and writes its own
-checkpoints. Five fused teachers build soft heatmap targets for eight unlabeled
-task routes; the final runtime uses one student checkpoint.
+See [`training/TRAINING_GUIDE.md`](training/TRAINING_GUIDE.md) for the complete
+data contract, five-fold training sequence, distillation stages, checkpoint
+export, and local Docker build.
 
-Repository: https://github.com/cjunxiao/FoundUS2026 (`postcompetition-v1.3.1`)
+Repository: https://github.com/cjunxiao/FoundUS2026 (`postcompetition-v1.4`)

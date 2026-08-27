@@ -1,6 +1,6 @@
 {
   "run_dir": "outputs/unlabeled_distillation/warmstart",
-  "unlabeled_manifest": "data/official_unlabeled_manifest.csv",
+  "unlabeled_manifest": "data/official_unlabeled_deduplicated_manifest.csv",
   "unlabeled_manifest_sha256": "a1a552dd7d9a853b46f25f07414f1b618d9db5ada77ed03777936003ed4bc844",
   "seed": 42,
   "samples_per_task": 192,
